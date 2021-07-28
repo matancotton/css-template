@@ -1,0 +1,207 @@
+.item {
+    position: relative;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    width: 80%;
+    max-width: 20rem;
+    display: grid;
+    grid-template-rows: 70% 30%;
+
+    .item-img {
+        width: 100%;
+        height: 100%;
+        background: transparent;
+    }
+
+    .rate {
+        width: 5rem;
+        display: flex;
+        width: 100%;
+        align-items: center;
+
+        .stars {
+            width: 30%;
+            margin-left: 0.5rem;
+        }
+
+        .rate-text {
+            opacity: 0.4;
+        }
+    }
+    .item__info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .item__info-content {
+            width: 70%;
+        }
+    }
+
+    .item-name {
+        margin: 0;
+        color: $blue;
+        font-size: 1rem;
+    }
+
+    .bold-price {
+        color: $blue;
+        font-weight: 700;
+    }
+
+    .fade-price {
+        opacity: 0.4;
+        padding: 0 0.2rem;
+        font-size: 0.8rem;
+        text-decoration: line-through;
+    }
+
+    .item-cart {
+        cursor: pointer;
+        background: $blue;
+        padding: 0.3rem 0.5rem;
+        border: none;
+        align-self: flex-end;
+        width: 30%;
+        border-radius: 5px;
+        outline: none;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: all 300ms ease-in-out;
+
+        &:hover {
+            transform: scale(1.1);
+            // border: 1px solid #045de9;
+            box-shadow: 0 0 10px rgba($color: $blue, $alpha: 0.6);
+        }
+
+        span {
+            font-size: 0.6rem;
+        }
+    }
+
+    .sale {
+        position: absolute;
+        top: 0.5rem;
+        left: 0.5rem;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #045de9;
+        background-image: linear-gradient(90deg, #045de9 0%, #09c6f9 74%);
+    }
+
+    .heart-icon {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 2rem;
+        height: 1.5rem;
+        stroke-width: 1;
+
+        path {
+            fill: transparent;
+            stroke: #696969;
+            stroke-width: 20;
+        }
+    }
+
+    .heart-active {
+        path {
+            fill: red;
+            stroke: transparent;
+            animation: jumping-heart 400ms linear forwards;
+        }
+    }
+}
+
+@media (min-width: 60rem) {
+    .item {
+        height: 20%;
+        width: 40%;
+        margin: 0.5rem;
+
+        .rate {
+            .rate-text {
+                font-size: 0.6rem;
+            }
+        }
+    }
+}
+
+@media (min-width: 50rem) {
+    .item {
+        width: 30%;
+        transition: all 400ms ease-in-out;
+
+        &:hover {
+            transform: scale(1.1);
+            // border: 1px solid #045de9;
+            box-shadow: 0 0 8px rgba($color: #045de9, $alpha: 0.6);
+        }
+
+        .item-img {
+            width: 10rem;
+            height: 10rem;
+        }
+
+        .item__info {
+            .item-name {
+                font-size: 0.8rem;
+            }
+
+            .bold-price {
+                font-size: 0.8rem;
+            }
+
+            .item__info-content {
+                width: 70%;
+            }
+
+            .item-cart {
+                width: 30%;
+                padding: 0.1rem 0.2rem;
+
+                svg {
+                    width: 1.2rem;
+                }
+                span {
+                    font-size: 0.5rem;
+                }
+            }
+        }
+
+        .sale {
+            width: 2rem;
+            height: 2rem;
+            font-size: 0.8rem;
+        }
+    }
+}
+
+@keyframes jumping-heart {
+    0% {
+        fill: transparent;
+        stroke: #000;
+    }
+    50% {
+        transform: scale(1);
+        fill: red;
+        stroke: transparent;
+    }
+    70% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        fill: red;
+    }
+}
